@@ -16,13 +16,14 @@ client.on('message', message => {
 
 function quoteIt(message) {
     let quote = message.content.substring(7)
-    let quotedPerson = message.mentions.members.last().user.username
+    let quotedPerson = message.mentions.members.last()
 
     if (quotedPerson === undefined || !quote.endsWith('>')) {
         message.channel.send('Who are you quoting? Mention them at the end of the quote!')
         return;
     }
 
+    quotedPerson = quotedPerson.user.username
     quote = quote.substring(0, quote.lastIndexOf('<'))
 
     const url = 'localhost:3000'
