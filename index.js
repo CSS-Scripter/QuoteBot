@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const { prefix, hostname, token } = require('./config.json')
+const { prefix, hostname, port, token } = require('./config.json')
 const http = require('http')
 
 const client = new Discord.Client()
@@ -26,7 +26,6 @@ function quoteIt(message) {
     quotedPerson = quotedPerson.user.username
     quote = quote.substring(0, quote.lastIndexOf('<'))
 
-    const url = 'localhost:3000'
     const body = JSON.stringify({
         message: quote,
         by: quotedPerson,
@@ -35,7 +34,7 @@ function quoteIt(message) {
 
     const options = {
         hostname: hostname,
-        port: 80,
+        port: port,
         path: '/v1/new',
         method: 'POST',
         headers: {
