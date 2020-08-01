@@ -48,7 +48,6 @@ function quoteIt(message) {
 
     const request = http.request(options, (res) => {
         console.log(`Statuscode: ${res.statusCode}`)
-        console.dir(res)
 
         res.on('data', (d) => {
             console.log(d)
