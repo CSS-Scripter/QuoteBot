@@ -11,6 +11,8 @@ client.once('ready', () => {
 client.on('message', message => {
     if (message.content.startsWith(`${prefix}quote`)) {
         quoteIt(message)
+    } else if (message.content.startsWith(`${prefix}site`)) {
+        message.channel.send(`https://quote.mylocalhost.app/${message.guild.id}`)
     }
 })
 
