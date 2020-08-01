@@ -25,6 +25,7 @@ function quoteIt(message) {
 
     quotedPerson = quotedPerson.user.username
     quote = quote.substring(0, quote.lastIndexOf('<'))
+    quote = quote.replace(/\s+$/, '');
 
     const body = JSON.stringify({
         message: quote,
@@ -32,10 +33,12 @@ function quoteIt(message) {
         year: '2020'
     })
 
+    const serverId = message.guild.id
+
     const options = {
         hostname: hostname,
         port: port,
-        path: '/v1/new',
+        path: `/${serverId}/new`,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
