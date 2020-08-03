@@ -5,7 +5,7 @@ const site = require ('./site')
 
 const commands = [
     { 'command': 'quote', 'function': quote},
-    { 'command': 'site', 'fucntion': site}
+    { 'command': 'site', 'function': site}
 ]
 
 module.exports = commands
